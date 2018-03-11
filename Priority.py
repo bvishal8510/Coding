@@ -1,8 +1,11 @@
 num = int(input("Enter the no. of processes  :"))
 l=[]
 l1=[]
+t_a_time=0
 for i in range(num):
     l1.append(int(input("Enter arrival time  :")))
+    t_a_time += l1[0]
+    l1.append(int(input("Enter priority  :")))
     l1.append(int(input("Enter burst time  :")))
     l.extend([l1])
     l1=[]
@@ -11,16 +14,19 @@ w_time=0
 tat=0
 a_w_time=0
 a_tat=0
-t_a_time=0
 
 for i in range(len(l)):
-    t_a_time += l[i][0]
     if(i==0):
         w_time += 0
-        tat += l[i][1]
+        tat += l[i][2]
     else:
-        w_time += l[i-1][1]
-        tat += l[i][1]
+        j=i
+        while((l[i-1][2] >= l[j][0]) and (j<(len(l)-1))):
+            l[j][0]=i
+            j+=1
+        l = sorted(l)
+        w_time += l[i-1][2]
+        tat += l[i][2]
     a_w_time += w_time
     a_tat += tat
 

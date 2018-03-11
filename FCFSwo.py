@@ -21,4 +21,4 @@ for i in range(len(l)):
     a_tat += tat
 
 print("Average waiting time = ",(a_w_time/num))
-print("Average waiting time = ",(a_tat/num))
+print("Average turn around time = ",(a_tat/num))

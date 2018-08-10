@@ -1,32 +1,47 @@
-t = int(input())
+t = int(input("1"))
 c = 0
 for i in range(t):
-	st1 = list(input())
-	st2 = list(input())
-	if 'b' in st1 or 'b' in st2:
-		try:
-			index = st1.index('b')
-		except:
-			index = st2.index('b')
-		del st1[index]
-		del st2[index]
-		if 'o' in st1 or 'o' in st2:
-			try:
-				index = st1.index('o')
-			except:
-				index = st2.index('o')
-			del st1[index]
-			del st2[index]
-			if 'b' in st1 or 'b' in st2:
-				try:
-					index = st1.index('b')
-				except:
-					index = st2.index('b')
-				del st1[index]
-				del st2[index]
-				if st1 == [] and st2 == []:
+	st1 = list(input("2"))
+	st2 = list(input("3"))
+	for j in range(3):
+		if 'o' in st1:
+			index = st1.index('o')	
+			if st2[index] == 'b':
+				if st1.count('b') > 2 or st2.count('b') > 2:
 					print('yes')
 					c += 1
+					break
+			if st2[index] != 'b':
+				if st1.count('b') > 1 or st2.count('b') > 1:
+					print('yes')
+					c += 1
+					break
+			if st1.count('o') > 1:
+				st1[index] = 'd'
+			else:
+				break
+
+		elif 'o' in st2:
+			index = st2.index('o')
+			print("index o",index)
+			if st1[index] == 'b':
+				if st1.count('b') > 2 or st2.count('b') > 2:
+					print('yes')
+					c += 1
+					break
+			if st1[index] != 'b':
+				if st1.count('b') > 1 or st2.count('b') > 1:
+					print('yes')
+					c += 1
+					break
+			if st2.count('o') > 1:
+				st2[index] = 'd'
+			else:
+				break
+
+		else:
+			break
+
 	if c == 0:
 		print('no')
 	c = 0

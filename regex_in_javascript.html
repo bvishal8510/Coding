@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testing</title>
+</head>
+<body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#submit").on('click', function (event) {
+				var obj = new Date();
+				var year = obj.getFullYear();
+				var i;
+				var false_i;
+				var end = "";
+				var start = "";
+				var st = $('#test').val();
+				for (i = year; i > (year-4); --i)
+				{
+					false_i = i;
+					end = end + String(false_i % 10)
+					false_i = false_i - 5;
+					false_i = false_i/10;
+					false_i = false_i.toFixed(0);
+					start += String(false_i % 10);
+				}
+				regex_string = "^["+start+"]["+end+"][0-4][0-4][0-1][0-9][0-9][-]?[mdlMDL]?$";
+				var re = new RegExp(regex_string);
+
+				if(!re.test(st)){
+					document.getElementById('show').innerHTML = "Student number format invalid";
+					return false;
+				}
+			});
+		});
+	</script>
+
+	<input id="test" >
+	<button id="submit">Check</button>
+	<p id="show"></p>
+
+</body>
+</html>

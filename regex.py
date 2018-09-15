@@ -13,7 +13,8 @@ for i in range(year, year-4, -1):
 	i = int(i/10)
 	start += str(i % 10)
 
-st1 = "^["+start+"]["+end+"][0-4][0-4][0-1][0-9][0-9][-]?[mdlMDL]?$"    		# regex for student number workable for every year
+st1 = "^["+start+"]["+end+"][0-4][0-4][0-1][0-9][0-9][-]?[mdlMDL]?$"   		# regex for student number workable for every year
+st1 = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$"
 print(st1)
 pattern = re.compile(st1)
 # print(pattern.match(string))

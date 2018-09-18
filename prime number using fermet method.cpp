@@ -4,8 +4,9 @@ using namespace std;
 int power(int a, unsigned int n, int p) 
 { 
     int res = 1;
-    a = a % p;  
-  
+    a = a % p; 
+    
+
     while (n > 0) 
     { 
         if (n & 1) 
@@ -14,6 +15,7 @@ int power(int a, unsigned int n, int p)
         n = n>>1; 
         a = (a*a) % p; 
     } 
+    cout << "res after change" << res << "\n";
     return res; 
 } 
   
@@ -25,13 +27,13 @@ bool isPrime(unsigned int n, int k)
    while (k>0) 
    { 
        int a = 2 + rand()%(n-4);   
-  
+      cout << "value of a is " << a << "\n";
        if (power(a, n-1, n) != 1) 
           return false; 
   
        k--; 
     } 
-  
+    cout << "End";
     return true; 
 } 
   

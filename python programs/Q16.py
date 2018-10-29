@@ -8,7 +8,7 @@ class A(object):
 
     @staticmethod
     def static_func(x):
-        print("executing static function   (%s)"%x)    
+        print("executing static function   (%s)"%x)
 
 a=A()
 
